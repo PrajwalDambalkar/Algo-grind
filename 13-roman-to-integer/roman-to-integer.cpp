@@ -14,7 +14,7 @@ public:
         int res = 0;
 
         for (int i=0; i<s.length(); i++) {
-            if (m[s[i]] < m[s[i+1]] && i+1 < s.length()) {
+            if (m[s[i]] < m[s[i+1]]) { //} && i+1 < s.length()) {
                 res -= m[s[i]];
             }
             else res += m[s[i]];

@@ -6,13 +6,18 @@ public:
 
         // set<vector<int>> st;
         
-        if (nums.size() < 4) return {};
+        if (n < 4) return {};
 
         sort(nums.begin(), nums.end()); //nlogn
+
         for (int i=0; i<n-3; i++) { //n
             if (i>0 && nums[i] == nums[i-1]) continue;
 
-            for (int j=i+1; j<n-2; j++) { //n
+            // adding optimization
+            if ((long long)nums[i] + nums[i+1] + nums[i+2] + nums[i+3] > target) break;
+            if ((long long)nums[i] + nums[n-1] + nums[n-2] + nums[n-3] < target) continue;
+
+            for (int j=i+1; j<n-2; j++) { //n^2
                 if (j>i+1 && nums[j] == nums[j-1]) continue;
 
                 int l = j+1, r = n-1;

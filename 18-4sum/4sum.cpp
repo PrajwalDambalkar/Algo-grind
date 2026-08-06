@@ -3,9 +3,12 @@ public:
     vector<vector<int>> fourSum(vector<int>& nums, int target) {
         vector<vector<int>> ans;
         int n=nums.size();
-        sort(nums.begin(), nums.end()); //nlogn
+
         // set<vector<int>> st;
         
+        if (nums.size() < 4) return {};
+
+        sort(nums.begin(), nums.end()); //nlogn
         for (int i=0; i<n-3; i++) { //n
             if (i>0 && nums[i] == nums[i-1]) continue;
 
@@ -28,8 +31,6 @@ public:
                 }
             }
         }
-
-        if (nums.size() < 4) return {};
 
         return ans;
     }

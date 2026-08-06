@@ -20,6 +20,10 @@ public:
             for (int j=i+1; j<n-2; j++) { //n^2
                 if (j>i+1 && nums[j] == nums[j-1]) continue;
 
+                // adding optimization
+                if ((long long)nums[i] + nums[j] + nums[j+1] + nums[j+2] > target) break;
+                if ((long long)nums[i] + nums[j] + nums[n-2] + nums[n-1] < target) continue;
+
                 int l = j+1, r = n-1;
 
                 while (l<r) {

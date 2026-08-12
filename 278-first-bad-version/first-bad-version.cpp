@@ -9,7 +9,7 @@ class Solution {
 public:
     int firstBadVersion(int n) {
         int lo=1, hi=n, mid, ans;
-        if (n==1 && isBadVersion(lo)) return n;
+        // if (n==1 && isBadVersion(lo)) return n;
         while (lo<=hi) {
             mid = lo + (hi - lo)/2;
             if (isBadVersion(mid)) {

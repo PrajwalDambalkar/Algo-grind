@@ -13,7 +13,7 @@ public:
         int ans = hi;
 
         while (lo <= hi) {
-            int mid = (lo + hi)/2;
+            int mid = lo + (hi-lo)/2;
             long long totalH = 0;
             for (int i=0; i<piles.size(); i++) {
                 totalH += ((long long)piles[i] + mid-1) / mid;

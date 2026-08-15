@@ -1,25 +1,21 @@
 class Solution {
-private:
-    int maxi(vector<int>& arr) {
-        int ans = INT_MIN;
-        for (auto a:arr) ans = max(ans, a);
-        return ans;
-    }
 public:
     int findKthPositive(vector<int>& arr, int k) {
-        // int lo = 1, hi = maxi(arr);
+        int lo = 0, hi = arr.size()-1;
 
-        // while(lo<=hi) {
-        //     int mid = lo + (hi-lo)/2;
-        //     int cnt = 0;
-        //     for (auto a:arr) {
-        //         if (a == )
-        //     }
-        // }
-        for (auto a:arr) {
-            if (a <= k) k++;
-            else break;
+        while(lo<=hi) {
+            int mid = (lo + hi)/2;
+            int missing = arr[mid] - (mid+1);
+
+            if (missing < k) lo = mid+1;
+            else hi = mid-1;    
         }
-        return k;
+        return k + lo;
+
+        // for (auto a:arr) {
+        //     if (a <= k) k++;
+        //     else break;
+        // }
+        // return k;
     }
 };

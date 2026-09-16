@@ -2,18 +2,23 @@ class Solution {
 public:
     int maxNonAdjacentSum(vector<int> temp) {
         int n = temp.size();
-        int prev = temp[0];
+        int prev1 = 0; //temp[0];
         int prev2 = 0;
-        for (int i=0; i<n; i++) {
-            int curr = temp[i];
-            if (i>1) curr += prev2;
+        // for (int i=0; i<n; i++) {
+        //     int curr = temp[i];
+        //     if (i>1) curr += prev2;
 
-            int notCurr = 0 + prev;
-            int current = max(curr, notCurr);
-            prev2 = prev;
-            prev = current;
+        //     int notCurr = 0 + prev;
+        //     int current = max(curr, notCurr);
+        //     prev2 = prev;
+        //     prev = current;
+        // }
+        for (int num : temp) {
+            int curr = max(prev1, prev2 + num);
+            prev2 = prev1;
+            prev1 = curr;
         }
-        return prev;
+        return prev1;
     }
 
     int rob(vector<int>& nums) {
